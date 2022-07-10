@@ -11,4 +11,4 @@
 4) Sports показ спортивных мероприятий
 5) Astronomy позволяет пользователю получать актуальную информацию о восходе, заходе солнца, восходе луны, заходе луны, фазе Луны и освещенности
 
-Стек MVVM, Kotlin coroutines, Flow, Retrofit, Hilt, Room
+Стек MVI, Kotlin coroutines, Flow, Retrofit, Hilt, Room
