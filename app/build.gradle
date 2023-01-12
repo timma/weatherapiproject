@@ -1,0 +1,95 @@
+plugins {
+	alias libs.plugins.android.application
+	alias libs.plugins.kotlin.android
+	alias libs.plugins.hilt.plugin
+	alias libs.plugins.kotlin.kapt
+}
+
+android {
+	namespace "com.farshatov.weather"
+	compileSdk 33
+
+	defaultConfig {
+		minSdk 26
+		targetSdk 33
+		versionCode 1
+		versionName "1.0"
+
+		testInstrumentationRunner "com.matias.kotlinrepositories.util.HiltTestRunner"
+		vectorDrawables {
+			useSupportLibrary true
+		}
+	}
+
+	buildTypes {
+		debug {
+			manifestPlaceholders = [usesCleartextTraffic: "true"]
+		}
+		release {
+			manifestPlaceholders = [usesCleartextTraffic: "false"]
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_11
+		targetCompatibility JavaVersion.VERSION_11
+	}
+	kotlinOptions {
+		jvmTarget = '11'
+	}
+	buildFeatures {
+		compose true
+	}
+	composeOptions {
+		kotlinCompilerExtensionVersion libs.versions.compose.get()
+	}
+	packagingOptions {
+		resources {
+			excludes += '/META-INF/{AL2.0,LGPL2.1}'
+		}
+	}
+	testOptions {
+		animationsDisabled = true
+	}
+}
+
+dependencies {
+
+	implementation(project(":common"))
+	implementation(project(":core"))
+	implementation(project(":uikit"))
+	implementation(project(":feature:feature_current_weather"))
+	implementation(project(":feature:feature_search_weather"))
+	implementation(project(":feature:feature_sports"))
+	implementation(project(":feature:feature_history_weather"))
+	implementation libs.kotlin.coroutines.android
+	implementation libs.android.coreKtx
+	implementation libs.android.appCompat
+	implementation libs.android.material
+	implementation libs.accompanist.systemuicontroller
+	implementation libs.accompanist.navigation
+
+	implementation libs.bundles.compose
+	implementation libs.lottie.compose
+
+	implementation libs.android.hilt
+	implementation libs.android.hilt.compose
+	kapt libs.android.hilt.compiler
+
+
+	implementation libs.bundles.lifecycle
+	implementation libs.splashscreen
+
+	androidTestImplementation libs.android.test.junit4
+	androidTestImplementation libs.android.test.espresso
+	androidTestImplementation libs.android.test.compose
+	testImplementation libs.android.test.junit4
+
+	// For instrumented tests.
+	androidTestImplementation libs.kotlin.coroutines.test
+	androidTestImplementation libs.android.hilt.testing
+	kaptAndroidTest libs.android.hilt.compiler
+	androidTestImplementation libs.okhttp.mockwebserver
+	androidTestImplementation libs.room.ktx
+}

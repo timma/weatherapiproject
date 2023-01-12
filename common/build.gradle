@@ -1,0 +1,65 @@
+plugins {
+	alias libs.plugins.android.library
+	alias libs.plugins.kotlin.android
+	alias libs.plugins.hilt.plugin
+	alias libs.plugins.kotlin.kapt
+}
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+android {
+	namespace "com.farshatov.common"
+	compileSdk 33
+
+	defaultConfig {
+		minSdk 26
+		targetSdk 33
+
+		consumerProguardFiles "consumer-rules.pro"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			buildConfigField("String", "MAP_KEY", apikeyProperties['MAP_KEY'])
+			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/v1/\"")
+		}
+		debug {
+			buildConfigField("String", "MAP_KEY", apikeyProperties['MAP_KEY'])
+			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/v1/\"")
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_11
+		targetCompatibility JavaVersion.VERSION_11
+	}
+	kotlinOptions {
+		jvmTarget = '11'
+	}
+	buildFeatures {
+		compose true
+	}
+	composeOptions {
+		kotlinCompilerExtensionVersion libs.versions.compose.get()
+	}
+}
+
+dependencies {
+	api (project(":core"))
+	implementation libs.kotlin.coroutines.android
+	implementation libs.android.hilt
+	kapt libs.android.hilt.compiler
+
+	implementation libs.bundles.networking
+	implementation libs.accompanist.navigation
+
+	api libs.paging.common
+
+	androidTestImplementation libs.android.test.junit4
+	androidTestImplementation libs.android.test.espresso
+	androidTestImplementation libs.android.test.compose
+	testImplementation libs.android.test.junit4
+}

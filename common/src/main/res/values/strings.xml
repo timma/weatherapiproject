@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="current_weather">Текущая погода</string>
+    <string name="sports">Спорт</string>
+    <string name="history_weather">История погода</string>
+</resources>

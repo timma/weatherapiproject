@@ -1,0 +1,59 @@
+plugins {
+	alias libs.plugins.android.library
+	alias libs.plugins.kotlin.android
+	alias libs.plugins.hilt.plugin
+	alias libs.plugins.kotlin.kapt
+}
+
+android {
+	namespace 'com.farshatov.feature_sports'
+	compileSdk 33
+
+	defaultConfig {
+		minSdk 26
+		targetSdk 33
+		versionCode 1
+		versionName "1.0"
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_11
+		targetCompatibility JavaVersion.VERSION_11
+	}
+	kotlinOptions {
+		jvmTarget = '11'
+	}
+	buildFeatures {
+		compose true
+	}
+	composeOptions {
+		kotlinCompilerExtensionVersion libs.versions.compose.get()
+	}
+}
+
+dependencies {
+	implementation(project(":common"))
+	implementation(project(":core"))
+	implementation(project(":uikit"))
+	api libs.result.jvm
+	implementation libs.android.hilt
+	implementation libs.android.hilt.compose
+	kapt libs.android.hilt.compiler
+	implementation libs.android.coreKtx
+	kapt libs.android.hilt.compiler
+	implementation libs.kotlin.coroutines.android
+	implementation libs.android.test.idling
+
+	androidTestImplementation libs.android.test.junit4
+	androidTestImplementation libs.android.test.espresso
+	androidTestImplementation libs.android.test.compose
+	testImplementation libs.android.test.junit4
+}
