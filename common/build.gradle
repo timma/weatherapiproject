@@ -25,11 +25,11 @@ android {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 			buildConfigField("String", "MAP_KEY", apikeyProperties['MAP_KEY'])
-			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/v1/\"")
+			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/\"")
 		}
 		debug {
 			buildConfigField("String", "MAP_KEY", apikeyProperties['MAP_KEY'])
-			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/v1/\"")
+			buildConfigField("String", "BASE_URL", "\"https://api.weatherapi.com/\"")
 		}
 	}
 	compileOptions {
