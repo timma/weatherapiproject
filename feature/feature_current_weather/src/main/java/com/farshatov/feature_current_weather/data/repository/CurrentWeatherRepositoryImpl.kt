@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flow
 class CurrentWeatherRepositoryImpl @Inject constructor(
     private val api: CurrentWeatherService
 ) : CurrentWeatherRepository, RemoteDataSource() {
-    override suspend fun getWeather(): Flow<Result<CurrentWeatherModel>> {
+    override suspend fun fetchWeather(): Flow<Result<CurrentWeatherModel>> {
         return flow {
             emit(Result.Loading(isLoading = true))
 

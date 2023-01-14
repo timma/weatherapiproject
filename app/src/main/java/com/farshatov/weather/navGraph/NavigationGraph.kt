@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.farshatov.common.expanded.composable
 import com.farshatov.common.navigation.NavigationItem
+import com.farshatov.feature_astronomy.presentation.screen.AstronomyScreen
 import com.farshatov.feature_current_weather.presentation.screen.CurrentWeatherScreen
 import com.farshatov.feature_history_weather.screen.HistoryWeatherScreen
 import com.farshatov.feature_search_wheather.screen.SearchWeatherScreen
@@ -61,6 +62,16 @@ fun NavigationGraph(
             label = context.getString(NavigationItem.HistoryWeather.title)
         ) {
             HistoryWeatherScreen(
+                navigateTo = {
+                    navController.navigate(it)
+                }
+            )
+        }
+        composable(
+            route = NavigationItem.AstronomyWeather.route,
+            label = context.getString(NavigationItem.AstronomyWeather.title)
+        ) {
+            AstronomyScreen(
                 navigateTo = {
                     navController.navigate(it)
                 }

@@ -10,6 +10,6 @@ class GetCurrentWeatherUseCase(
 ) {
 
     suspend operator fun invoke(): Flow<Result<CurrentWeatherModel>> {
-        return repository.getWeather()
+        return repository.fetchWeather()
     }
 }

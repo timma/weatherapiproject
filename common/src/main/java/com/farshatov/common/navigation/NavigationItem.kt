@@ -26,6 +26,7 @@ sealed class NavigationItem(
     object HistoryWeather : NavigationItem(
         route = "history_weather",
         title = R.string.history_weather,
+        icon = R.drawable.ic_round_history_toggle_off_24,
         navBack = ""
     )
 
@@ -37,5 +38,10 @@ sealed class NavigationItem(
     )
 
     object AstronomyWeather :
-        NavigationItem(route = "astronomy_weather", title = R.string.current_weather, navBack = "")
+        NavigationItem(
+            route = "astronomy_weather",
+            title = R.string.current_weather,
+            icon = R.drawable.ic_round_wb_sunny_24,
+            navBack = ""
+        )
 }

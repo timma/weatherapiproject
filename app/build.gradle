@@ -62,6 +62,7 @@ dependencies {
 	implementation(project(":feature:feature_current_weather"))
 	implementation(project(":feature:feature_search_weather"))
 	implementation(project(":feature:feature_sports"))
+	implementation(project(":feature:feature_astronomy"))
 	implementation(project(":feature:feature_history_weather"))
 	implementation libs.kotlin.coroutines.android
 	implementation libs.android.coreKtx
