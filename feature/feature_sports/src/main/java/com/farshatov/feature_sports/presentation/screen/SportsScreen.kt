@@ -1,4 +1,4 @@
-package com.farshatov.feature_current_weather.presentation.screen
+package com.farshatov.feature_sports.presentation.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,31 +18,29 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.farshatov.feature_current_weather.presentation.viewmodel.CurrentWeatherEvent
-import com.farshatov.feature_current_weather.presentation.viewmodel.CurrentWeatherState
-import com.farshatov.feature_current_weather.presentation.viewmodel.CurrentWeatherViewModel
+import com.farshatov.feature_sports.presentation.viewmodel.SportsEvent
+import com.farshatov.feature_sports.presentation.viewmodel.SportsState
+import com.farshatov.feature_sports.presentation.viewmodel.SportsViewModel
 import com.farshatov.uikit.resources.UiColors
 import com.farshatov.uikit.resources.defaultPadding
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CurrentWeatherScreen(
-    title: String,
+fun SportsScreen(
     navigateTo: (String) -> Unit,
-    viewModel: CurrentWeatherViewModel = hiltViewModel()
+    viewModel: SportsViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState().collectAsState().value
     var refreshing by remember { mutableStateOf(false) }
     refreshing = when (uiState) {
-        is CurrentWeatherState.Loading -> {
-            viewModel.perform(CurrentWeatherEvent.Loading)
+        is SportsState.Loading -> {
+            viewModel.perform(SportsEvent.Load)
             true
         }
-        is CurrentWeatherState.Error -> {
-            // viewModel.perform(CurrentWeatherEvent.Error)
+        is SportsState.Error -> {
             false
         }
-        is CurrentWeatherState.Success<*> -> {
+        is SportsState.Success<*> -> {
             false
         }
         else -> {
@@ -58,6 +56,21 @@ fun CurrentWeatherScreen(
                 .padding(all = defaultPadding)
                 .pullRefresh(state)
         ) {
+            /*LazyColumn(content =){
+                items(uiState.sportsList.size) { index ->
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(all = defaultPadding),
+                        color = UiColors.surface
+                    ) {
+                        SportsItem(
+                            sport = uiState.sportsList[index],
+                            navigateTo = navigateTo
+                        )
+                    }
+                }
+            }*/
         }
         if (refreshing) {
             Surface(

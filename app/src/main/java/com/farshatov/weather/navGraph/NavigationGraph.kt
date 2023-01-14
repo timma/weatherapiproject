@@ -10,7 +10,7 @@ import com.farshatov.common.navigation.NavigationItem
 import com.farshatov.feature_current_weather.presentation.screen.CurrentWeatherScreen
 import com.farshatov.feature_history_weather.screen.HistoryWeatherScreen
 import com.farshatov.feature_search_wheather.screen.SearchWeatherScreen
-import com.farshatov.feature_sports.screen.SportsScreen
+import com.farshatov.feature_sports.presentation.screen.SportsScreen
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 
 @OptIn(ExperimentalAnimationApi::class)
