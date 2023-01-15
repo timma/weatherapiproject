@@ -1,5 +1,6 @@
 package com.farshatov.feature_sports.di
 
+import com.farshatov.core.location.LocationManager
 import com.farshatov.feature_sports.data.remote.SportsService
 import com.farshatov.feature_sports.data.repository.SportsRepositoryImpl
 import com.farshatov.feature_sports.domain.repository.SportsRepository
@@ -22,8 +23,11 @@ class SportsModule {
 
     @Provides
     @Singleton
-    fun provideCurrentWeatherRepository(api: SportsService): SportsRepository {
-        return SportsRepositoryImpl(api)
+    fun provideCurrentWeatherRepository(
+        api: SportsService,
+        locationManager: LocationManager
+    ): SportsRepository {
+        return SportsRepositoryImpl(api, locationManager)
     }
 
     @Provides

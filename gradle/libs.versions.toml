@@ -15,6 +15,7 @@ room = "2.5.0"
 navigation = "2.5.3"
 
 [libraries]
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 android-appCompat = "androidx.appcompat:appcompat:1.6.0"
 android-coreKtx = "androidx.core:core-ktx:1.9.0"

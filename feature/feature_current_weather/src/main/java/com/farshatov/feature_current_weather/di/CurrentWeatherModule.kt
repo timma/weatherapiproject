@@ -1,5 +1,6 @@
 package com.farshatov.feature_current_weather.di
 
+import com.farshatov.core.location.LocationManager
 import com.farshatov.feature_current_weather.data.remote.CurrentWeatherService
 import com.farshatov.feature_current_weather.data.repository.CurrentWeatherRepositoryImpl
 import com.farshatov.feature_current_weather.domain.repository.CurrentWeatherRepository
@@ -22,8 +23,11 @@ class CurrentWeatherModule {
 
     @Provides
     @Singleton
-    fun provideCurrentWeatherRepository(api: CurrentWeatherService): CurrentWeatherRepository {
-        return CurrentWeatherRepositoryImpl(api)
+    fun provideCurrentWeatherRepository(
+        api: CurrentWeatherService,
+        locationManager: LocationManager
+    ): CurrentWeatherRepository {
+        return CurrentWeatherRepositoryImpl(api, locationManager)
     }
 
     @Provides

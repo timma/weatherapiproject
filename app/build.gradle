@@ -73,6 +73,7 @@ dependencies {
 
 	implementation libs.bundles.compose
 	implementation libs.lottie.compose
+	implementation libs.accompanist.permissions
 
 	implementation libs.android.hilt
 	implementation libs.android.hilt.compose

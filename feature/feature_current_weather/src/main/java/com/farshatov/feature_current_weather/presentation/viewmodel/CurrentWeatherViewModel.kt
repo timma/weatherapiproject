@@ -37,9 +37,13 @@ class CurrentWeatherViewModel @Inject constructor(
                         )
                     }
                 }
-//                is Result.Error -> {
-//                    updateState(CurrentWeatherState.Error(it.message))
-//                }
+                is Result.Error -> {
+                    updateState(
+                        CurrentWeatherState.Error(
+                            it.message.orEmpty()
+                        )
+                    )
+                }
                 is Result.Loading -> {
                     updateState(CurrentWeatherState.Loading)
                 }

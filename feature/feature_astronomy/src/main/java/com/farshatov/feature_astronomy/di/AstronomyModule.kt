@@ -1,5 +1,6 @@
 package com.farshatov.feature_astronomy.di
 
+import com.farshatov.core.location.LocationManager
 import com.farshatov.feature_astronomy.data.remote.AstronomyService
 import com.farshatov.feature_astronomy.data.repository.AstronomyRepositoryImpl
 import com.farshatov.feature_astronomy.domain.repository.AstronomyRepository
@@ -22,8 +23,8 @@ class AstronomyModule {
 
     @Provides
     @Singleton
-    fun provideCurrentWeatherRepository(api: AstronomyService): AstronomyRepository {
-        return AstronomyRepositoryImpl(api)
+    fun provideCurrentWeatherRepository(api: AstronomyService, locationManager: LocationManager): AstronomyRepository {
+        return AstronomyRepositoryImpl(api, locationManager)
     }
 
     @Provides

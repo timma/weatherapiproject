@@ -6,4 +6,8 @@ data class LocationW(val latitude: Double, val longitude: Double) {
         operator fun invoke(latitude: Double?, longitude: Double?) =
             LocationW(latitude ?: 0.0, longitude ?: 0.0)
     }
+
+    override fun toString(): String {
+        return "$latitude,$longitude"
+    }
 }

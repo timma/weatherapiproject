@@ -11,6 +11,6 @@ interface CurrentWeatherService {
     suspend fun fetchCurrentWeather(
         @Query("key") key: String = BuildConfig.MAP_KEY,
         @Query("q") q: String,
-        @Query("aqi") aqi: String = AQI.YES.name
+        @Query("aqi") aqi: String = AQI.YES.title
     ): CurrentWeatherDto
 }
