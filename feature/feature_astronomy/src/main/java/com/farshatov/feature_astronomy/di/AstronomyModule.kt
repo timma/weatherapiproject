@@ -17,19 +17,19 @@ import retrofit2.Retrofit
 class AstronomyModule {
     @Provides
     @Singleton
-    fun provideCurrentWeatherService(retrofit: Retrofit): AstronomyService = retrofit.create(
+    fun provideAstronomyService(retrofit: Retrofit): AstronomyService = retrofit.create(
         AstronomyService::class.java
     )
 
     @Provides
     @Singleton
-    fun provideCurrentWeatherRepository(api: AstronomyService, locationManager: LocationManager): AstronomyRepository {
+    fun provideAstronomyRepository(api: AstronomyService, locationManager: LocationManager): AstronomyRepository {
         return AstronomyRepositoryImpl(api, locationManager)
     }
 
     @Provides
     @Singleton
-    fun provideGetCurrentWeatherUseCase(repository: AstronomyRepository): GetAstronomyUseCase {
+    fun provideGetAstronomyUseCase(repository: AstronomyRepository): GetAstronomyUseCase {
         return GetAstronomyUseCase(repository)
     }
 }
