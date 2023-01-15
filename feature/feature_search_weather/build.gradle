@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-	namespace 'com.farshatov.feature_search_wheather'
+	namespace 'com.farshatov.feature_search_weather'
 	compileSdk 33
 
 	defaultConfig {
@@ -51,6 +51,9 @@ dependencies {
 	kapt libs.android.hilt.compiler
 	implementation libs.kotlin.coroutines.android
 	implementation libs.android.test.idling
+
+	implementation libs.bundles.compose
+	implementation libs.bundles.networking
 
 	androidTestImplementation libs.android.test.junit4
 	androidTestImplementation libs.android.test.espresso

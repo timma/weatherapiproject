@@ -3,14 +3,13 @@ package com.farshatov.weather.navGraph
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.farshatov.common.expanded.composable
 import com.farshatov.common.navigation.NavigationItem
 import com.farshatov.feature_astronomy.presentation.screen.AstronomyScreen
 import com.farshatov.feature_current_weather.presentation.screen.CurrentWeatherScreen
 import com.farshatov.feature_history_weather.presentation.screen.HistoryWeatherScreen
-import com.farshatov.feature_search_wheather.screen.SearchWeatherScreen
+import com.farshatov.feature_search_wheather.presentation.screen.SearchWeatherScreen
 import com.farshatov.feature_sports.presentation.screen.SportsScreen
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 
@@ -30,7 +29,6 @@ fun NavigationGraph(
             label = context.getString(NavigationItem.CurrentWeather.title)
         ) {
             CurrentWeatherScreen(
-                title = stringResource(id = NavigationItem.CurrentWeather.title),
                 navigateTo = {
                     navController.navigate(it)
                 }
@@ -51,7 +49,6 @@ fun NavigationGraph(
             label = context.getString(NavigationItem.SearchWeather.title)
         ) {
             SearchWeatherScreen(
-                title = stringResource(id = NavigationItem.CurrentWeather.title),
                 navigateTo = {
                     navController.navigate(it)
                 }

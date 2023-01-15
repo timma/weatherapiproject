@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
@@ -50,12 +52,12 @@ fun AstronomyScreen(
     }
     val state = rememberPullRefreshState(refreshing, onRefresh = { refreshing = true })
 
-    Box {
+    Box(modifier = Modifier.fillMaxSize().pullRefresh(state)) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(all = defaultPadding)
-                .pullRefresh(state)
+                .verticalScroll(rememberScrollState())
         ) {
         }
         if (refreshing) {

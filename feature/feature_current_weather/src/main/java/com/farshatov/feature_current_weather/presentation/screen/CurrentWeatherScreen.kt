@@ -29,7 +29,6 @@ import com.farshatov.uikit.resources.defaultPadding
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CurrentWeatherScreen(
-    title: String,
     navigateTo: (String) -> Unit,
     viewModel: CurrentWeatherViewModel = hiltViewModel()
 ) {

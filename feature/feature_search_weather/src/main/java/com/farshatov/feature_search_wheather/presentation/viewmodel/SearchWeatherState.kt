@@ -1,4 +1,4 @@
-package com.farshatov.feature_search_wheather.viewmodel
+package com.farshatov.feature_search_wheather.presentation.viewmodel
 
 import com.farshatov.core.presentation.viewmodel.ViewState
 

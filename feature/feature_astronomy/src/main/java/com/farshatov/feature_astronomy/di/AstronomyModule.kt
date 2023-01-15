@@ -23,7 +23,10 @@ class AstronomyModule {
 
     @Provides
     @Singleton
-    fun provideAstronomyRepository(api: AstronomyService, locationManager: LocationManager): AstronomyRepository {
+    fun provideAstronomyRepository(
+        api: AstronomyService,
+        locationManager: LocationManager
+    ): AstronomyRepository {
         return AstronomyRepositoryImpl(api, locationManager)
     }
 
