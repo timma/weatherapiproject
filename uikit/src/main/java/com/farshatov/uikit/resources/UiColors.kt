@@ -14,6 +14,7 @@ enum class UiColors(val value: Color) {
     ICO(Color(0xFFB0B5BF)),
     ICON_IN_CARD(Color(0xFFF8F8FA)),
     RED(Color(0xFFDF4238)),
+    GREEN(Color(0xFF00BFA5)),
     SECOND_TXT(Color(0xFF757B85)),
     SHIMMER_LIGHT(Color(0xA3C2C2C2)),
     TRANSPARENT(Color.Transparent),

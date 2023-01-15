@@ -37,9 +37,13 @@ class SportsViewModel @Inject constructor(
                         )
                     }
                 }
-//                is Result.Error -> {
-//                    updateState(CurrentWeatherState.Error(it.message))
-//                }
+                is Result.Error -> {
+                    updateState(
+                        SportsState.Error(
+                            it.message.orEmpty()
+                        )
+                    )
+                }
                 is Result.Loading -> {
                     updateState(SportsState.Loading)
                 }

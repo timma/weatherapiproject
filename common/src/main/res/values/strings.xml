@@ -3,4 +3,9 @@
     <string name="current_weather">Текущая погода</string>
     <string name="sports">Спорт</string>
     <string name="history_weather">История погода</string>
+    <string name="moonIllumination">Луна освещеность</string>
+    <string name="moonset_string">Закат луны</string>
+    <string name="moonrise_string">Восход луны</string>
+    <string name="sunrise_string">Восход солнца</string>
+    <string name="sunset_string">Закат солнца</string>
 </resources>
