@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Feature_Current_weather</string>
+    <string name="feelslikeTemp">Ощущаемая</string>
 </resources>

@@ -8,4 +8,10 @@
     <string name="moonrise_string">Восход луны</string>
     <string name="sunrise_string">Восход солнца</string>
     <string name="sunset_string">Закат солнца</string>
+    <string name="feelslikeTemp">Ощущаемая</string>
+    <string name="celsius">°</string>
+    <string name="windSpeed_string">Скорость ветра</string>
+    <string name="precip_string">Осадки</string>
+    <string name="humidity_string">Влажность</string>
+    <string name="gust_string">Порывы ветрв</string>
 </resources>

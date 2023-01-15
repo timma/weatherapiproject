@@ -58,9 +58,6 @@ fun AstronomyScreen(
             astronomyOutputModel = uiState.data as AstronomyOutputModel
             false
         }
-        else -> {
-            false
-        }
     }
     val state = rememberPullRefreshState(
         refreshing,
