@@ -14,4 +14,6 @@
     <string name="precip_string">Осадки</string>
     <string name="humidity_string">Влажность</string>
     <string name="gust_string">Порывы ветрв</string>
+    <string name="search_text_string">Поиск адреса</string>
+    <string name="stop_search">Ничего не найдено</string>
 </resources>
