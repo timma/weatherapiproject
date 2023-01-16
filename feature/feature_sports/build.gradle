@@ -55,6 +55,8 @@ dependencies {
 	implementation libs.bundles.compose
 	implementation libs.bundles.networking
 
+	testImplementation libs.mockk
+
 	androidTestImplementation libs.android.test.junit4
 	androidTestImplementation libs.android.test.espresso
 	androidTestImplementation libs.android.test.compose
